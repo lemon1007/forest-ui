@@ -1,55 +1,56 @@
 <template>
-<div class="layout">
-  <Topnav toggleMenuButtonVisible class="nav" />
-  <div class="content">
-    <aside v-if="menuVisible">
-      <h2>文档</h2>
-      <ol>
-        <li>
-          <router-link to="/doc/intro">介绍</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/install">安装</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/get-started">开始使用</router-link>
-        </li>
-      </ol>
-      <h2>组件列表</h2>
-      <ol>
-        <li>
-          <router-link to="/doc/switch">Switch 组件</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/button">Button 组件</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/dialog">Dialog 组件</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/tabs">Tabs 组件</router-link>
-        </li>
-      </ol>
-    </aside>
-    <main>
-      <router-view />
-    </main>
+  <div class="layout">
+    <Topnav toggleMenuButtonVisible class="nav"/>
+    <div class="content">
+      <aside v-if="menuVisible">
+        <h2>文档</h2>
+        <ol>
+          <li>
+            <router-link to="/doc/intro">介绍</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/install">安装</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/get-started">开始使用</router-link>
+          </li>
+        </ol>
+        <h2 class="componentsList">组件列表</h2>
+        <ol>
+          <li>
+            <router-link to="/doc/switch">Switch 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/button">Button 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/dialog">Dialog 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/tabs">Tabs 组件</router-link>
+          </li>
+        </ol>
+      </aside>
+      <main>
+        <router-view/>
+      </main>
+    </div>
   </div>
-</div>
 </template>
 
 <script lang="ts">
-import Topnav from "../components/Topnav.vue";
+import Topnav from '../components/Topnav.vue';
 import {
   inject,
   Ref
-} from "vue";
+} from 'vue';
+
 export default {
   components: {
     Topnav
   },
   setup() {
-    const menuVisible = inject < Ref < boolean >> ("menuVisible"); // get
+    const menuVisible = inject<Ref<boolean>>('menuVisible'); // get
     return {
       menuVisible
     };
@@ -58,18 +59,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$aside-index : 8;
+$aside-index: 8;
 
 .layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
 
-  >.nav {
+  > .nav {
     flex-shrink: 0;
   }
 
-  >.content {
+  > .content {
     flex-grow: 1;
     padding-top: 60px;
     padding-left: 156px;
@@ -83,11 +84,16 @@ $aside-index : 8;
 .content {
   display: flex;
 
-  >aside {
+  .componentsList {
+    margin-top: 10px;
+    margin-left: -2px;
+  }
+
+  > aside {
     flex-shrink: 0;
   }
 
-  >main {
+  > main {
     flex-grow: 1;
     padding: 16px;
     background: white;
@@ -95,24 +101,24 @@ $aside-index : 8;
 }
 
 aside {
-  background: lightblue;
+  background: #42b983;
   width: 150px;
-  padding: 16px 0;
+  padding: 70px 0 16px 0;
   position: fixed;
   top: 0;
   left: 0;
-  padding-top: 70px;
   height: 100%;
   z-index: $aside-index;
+  color: white;
 
-  >h2 {
+  > h2 {
     margin-bottom: 4px;
     padding: 0 16px;
   }
 
-  >ol {
-    >li {
-      >a {
+  > ol {
+    > li {
+      > a {
         display: block;
         padding: 4px 16px;
         text-decoration: none;
@@ -120,6 +126,7 @@ aside {
 
       .router-link-active {
         background: white;
+        color: #42b983;
       }
     }
   }

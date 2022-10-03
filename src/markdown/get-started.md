@@ -20,6 +20,7 @@ import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "forest-ui"
   </div>
 </template>
 <script>
+  
 import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "forest-ui"
 export default {
   components: {Button}

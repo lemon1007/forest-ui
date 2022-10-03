@@ -38,7 +38,7 @@ $h2: $h - 4px;
   }
 
   &.forest-checked {
-    background: #1890ff;
+    background: #42b983;
 
     >span {
       left: calc(100% - #{$h2} - 2px);

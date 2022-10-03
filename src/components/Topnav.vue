@@ -1,26 +1,38 @@
 <template>
-<div class="topnav">
-  <router-link to="/" class="logo">
-    <svg class="icon">
-      <use xlink:href="#icon-king"></use>
+  <div class="topnav">
+    <router-link to="/" class="logo">
+      <svg class="icon">
+        <use xlink:href="#icon-tree"></use>
+      </svg>
+    </router-link>
+    <ul class="menu">
+      <li>
+        <router-link to="/doc">
+          <svg class="icon">
+            <use xlink:href="#icon-doc"></use>
+          </svg>
+        </router-link>
+      </li>
+      <li>
+        <a href="https://github.com/lemon19961007/forest-ui">
+          <svg class="icon">
+            <use xlink:href="#icon-github"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+    <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
+      <use xlink:href="#icon-more"></use>
     </svg>
-  </router-link>
-  <ul class="menu">
-    <li>
-      <router-link to="/doc">文档</router-link>
-    </li>
-  </ul>
-  <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
-    <use xlink:href="#icon-menu"></use>
-  </svg>
-</div>
+  </div>
 </template>
 
 <script lang="ts">
 import {
   inject,
   Ref
-} from "vue";
+} from 'vue';
+
 export default {
   props: {
     toggleMenuButtonVisible: {
@@ -29,7 +41,7 @@ export default {
     }
   },
   setup() {
-    const menuVisible = inject < Ref < boolean >> ("menuVisible"); // get
+    const menuVisible = inject<Ref<boolean>>('menuVisible'); // get
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value;
     };
@@ -54,28 +66,38 @@ $color: #007974;
   z-index: 16;
   justify-content: center;
   align-items: center;
+  background: #42b983;
 
-  >.logo {
+  > .logo {
     max-width: 6em;
     margin-right: auto;
 
-    >svg {
+    > svg {
       width: 32px;
       height: 32px;
     }
   }
 
-  >.menu {
+  > .menu {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+    margin-right: 16px;
 
-    >li {
-      margin: 0 1em;
+    > li {
+      margin: 0 0.5em;
+
+      > a {
+        > .icon {
+          width: 27px;
+          height: 27px;
+          color: white;
+        }
+      }
     }
   }
 
-  >.toggleAside {
+  > .toggleAside {
     width: 32px;
     height: 32px;
     position: absolute;
@@ -83,19 +105,19 @@ $color: #007974;
     top: 50%;
     transform: translateY(-50%);
     display: none;
-    background: fade-out(black, 0.9);
+    fill: white;
   }
 
   @media (max-width: 500px) {
-    >.menu {
+    > .menu {
       display: none;
     }
 
-    >.logo {
+    > .logo {
       margin: 0 auto;
     }
 
-    >.toggleAside {
+    > .toggleAside {
       display: inline-block;
     }
   }

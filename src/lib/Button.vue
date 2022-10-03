@@ -33,7 +33,7 @@ const classes = computed(() => {
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
-$blue: #40a9ff;
+$green: #42b983;
 $radius: 4px;
 $red: red;
 $grey: grey;
@@ -60,8 +60,8 @@ $grey: grey;
 
   &:hover,
   &:focus {
-    color: $blue;
-    border-color: $blue;
+    color: $green;
+    border-color: $green;
   }
 
   &:focus {
@@ -75,11 +75,11 @@ $grey: grey;
   &.forest-theme-link {
     border-color: transparent;
     box-shadow: none;
-    color: $blue;
+    color: $green;
 
     &:hover,
     &:focus {
-      color: lighten($blue, 10%);
+      color: lighten($green, 10%);
     }
   }
 
@@ -108,14 +108,14 @@ $grey: grey;
 
   &.forest-theme-button {
     &.forest-level-main {
-      background: $blue;
+      background: $green;
       color: white;
-      border-color: $blue;
+      border-color: $green;
 
       &:hover,
       &:focus {
-        background: darken($blue, 10%);
-        border-color: darken($blue, 10%);
+        background: darken($green, 10%);
+        border-color: darken($green, 10%);
       }
     }
 
@@ -145,11 +145,11 @@ $grey: grey;
 
   &.forest-theme-text {
     &.forest-level-main {
-      color: $blue;
+      color: $green;
 
       &:hover,
       &:focus {
-        color: darken($blue, 10%);
+        color: darken($green, 10%);
       }
     }
 
@@ -188,7 +188,7 @@ $grey: grey;
     display: inline-block;
     margin-right: 4px;
     border-radius: 8px;
-    border-color: $blue $blue $blue transparent;
+    border-color: $green $green $green transparent;
     border-style: solid;
     border-width: 2px;
     animation: forest-spin 1s infinite linear;
