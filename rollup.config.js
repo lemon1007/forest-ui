@@ -12,13 +12,13 @@ export default {
     globals: {
       vue: 'Vue'
     },
-    name: 'Owl',
-    file: 'dist/lib/owl.js',
+    name: 'Forest',
+    file: 'dist/lib/forest.js',
     format: 'umd',
     plugins: [terser()]
   }, {
-    name: 'Owl',
-    file: 'dist/lib/owl.esm.js',
+    name: 'Forest',
+    file: 'dist/lib/forest.esm.js',
     format: 'es',
     plugins: [terser()]
   }],

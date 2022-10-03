@@ -1,28 +1,31 @@
 <template>
-  <button class="owl-button" :class="classes" :disabled="disabled" @click="$emit('click', $event)">
-    <span v-if="loading" class="owl-loadingIndicator"></span>
-    <slot />
+  <button class="forest-button" :class="classes" :disabled="disabled" @click="$emit('click', $event)">
+    <span v-if="loading" class="forest-loadingIndicator"></span>
+    <slot/>
   </button>
 </template>
 <script lang="ts" setup="props">
-import { computed } from "vue";
-const props = defineProps<{
+import {computed} from 'vue';
+
+const props = withDefaults(defineProps<{
   theme?: 'button' | 'text' | 'link';
   size?: 'normal' | 'big' | 'small';
   level?: 'normal' | 'main' | 'danger';
   disabled?: boolean;
   loading?: boolean;
-}>();
-const { theme, size, level } = props;
+}>(), {
+  theme: 'button'
+});
+const {theme, size, level} = props;
 
 defineEmits<{
   (e: 'click', event: MouseEvent): void
-}>()
+}>();
 const classes = computed(() => {
   return {
-    [`owl-theme-${theme}`]: theme,
-    [`owl-size-${size}`]: size,
-    [`owl-level-${level}`]: level,
+    [`forest-theme-${theme}`]: theme,
+    [`forest-size-${size}`]: size,
+    [`forest-level-${level}`]: level,
   };
 });
 </script>
@@ -35,7 +38,7 @@ $radius: 4px;
 $red: red;
 $grey: grey;
 
-.owl-button {
+.forest-button {
   box-sizing: border-box;
   height: $h;
   padding: 0 12px;
@@ -51,7 +54,7 @@ $grey: grey;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
   transition: background 250ms;
 
-  &+& {
+  & + & {
     margin-left: 8px;
   }
 
@@ -69,7 +72,7 @@ $grey: grey;
     border: 0;
   }
 
-  &.owl-theme-link {
+  &.forest-theme-link {
     border-color: transparent;
     box-shadow: none;
     color: $blue;
@@ -80,7 +83,7 @@ $grey: grey;
     }
   }
 
-  &.owl-theme-text {
+  &.forest-theme-text {
     border-color: transparent;
     box-shadow: none;
     color: inherit;
@@ -91,20 +94,20 @@ $grey: grey;
     }
   }
 
-  &.owl-size-big {
+  &.forest-size-big {
     font-size: 24px;
     height: 48px;
     padding: 0 16px;
   }
 
-  &.owl-size-small {
+  &.forest-size-small {
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
   }
 
-  &.owl-theme-button {
-    &.owl-level-main {
+  &.forest-theme-button {
+    &.forest-level-main {
       background: $blue;
       color: white;
       border-color: $blue;
@@ -116,7 +119,7 @@ $grey: grey;
       }
     }
 
-    &.owl-level-danger {
+    &.forest-level-danger {
       background: $red;
       border-color: $red;
       color: white;
@@ -129,8 +132,8 @@ $grey: grey;
     }
   }
 
-  &.owl-theme-link {
-    &.owl-level-danger {
+  &.forest-theme-link {
+    &.forest-level-danger {
       color: $red;
 
       &:hover,
@@ -140,8 +143,8 @@ $grey: grey;
     }
   }
 
-  &.owl-theme-text {
-    &.owl-level-main {
+  &.forest-theme-text {
+    &.forest-level-main {
       color: $blue;
 
       &:hover,
@@ -150,7 +153,7 @@ $grey: grey;
       }
     }
 
-    &.owl-level-danger {
+    &.forest-level-danger {
       color: $red;
 
       &:hover,
@@ -160,7 +163,7 @@ $grey: grey;
     }
   }
 
-  &.owl-theme-button {
+  &.forest-theme-button {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
@@ -171,15 +174,15 @@ $grey: grey;
     }
   }
 
-  &.owl-theme-link,
-  &.owl-theme-text {
+  &.forest-theme-link,
+  &.forest-theme-text {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
     }
   }
 
-  >.owl-loadingIndicator {
+  > .forest-loadingIndicator {
     width: 14px;
     height: 14px;
     display: inline-block;
@@ -188,11 +191,11 @@ $grey: grey;
     border-color: $blue $blue $blue transparent;
     border-style: solid;
     border-width: 2px;
-    animation: owl-spin 1s infinite linear;
+    animation: forest-spin 1s infinite linear;
   }
 }
 
-@keyframes owl-spin {
+@keyframes forest-spin {
   0% {
     transform: rotate(0deg)
   }

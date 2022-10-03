@@ -1,16 +1,16 @@
-import Dialog from "./Dialog.vue";
-import { createApp, h } from "vue";
+import Dialog from './Dialog.vue';
+import {createApp, h, RendererElement, RendererNode, VNode} from 'vue';
 
 interface Options {
-  title: string;
+  title: VNode;
   content?: string;
   ok?: () => boolean;
   cancel?: () => void;
 }
 
 export const openDialog = (options: Options) => {
-  const { title, content, ok, cancel } = options;
-  const div = document.createElement("div");
+  const {title, content, ok, cancel} = options;
+  const div = document.createElement('div');
   document.body.appendChild(div);
   const close = () => {
     app.unmount();
@@ -22,7 +22,7 @@ export const openDialog = (options: Options) => {
         Dialog,
         {
           visible: true,
-          "onUpdate:visible": (newVisible: boolean) => {
+          'onUpdate:visible': (newVisible: boolean) => {
             if (newVisible === false) {
               close();
             }

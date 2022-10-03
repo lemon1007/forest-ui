@@ -1,19 +1,19 @@
 <template>
   <template v-if="visible">
     <Teleport to="body">
-      <div class="owl-dialog-overlay" @click="onClickOverlay"></div>
-      <div class="owl-dialog-wrapper">
-        <div class="owl-dialog">
+      <div class="forest-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="forest-dialog-wrapper">
+        <div class="forest-dialog">
           <header>
-            <slot name="title" />
-            <span @click="close" class="owl-dialog-close"></span>
+            <slot name="title"/>
+            <span @click="close" class="forest-dialog-close"></span>
           </header>
           <main>
-            <slot name="content" />
+            <slot name="content"/>
           </main>
           <footer>
-            <Button level="main" @click="onClickOk">OK</Button>
-            <Button @click="onClickCancel">Cancel</Button>
+            <Button level="main" @click="onClickOk">确认</Button>
+            <Button @click="onClickCancel">关闭</Button>
           </footer>
         </div>
       </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup="props, context">
-import Button from "./Button.vue";
+import Button from './Button.vue';
 
 const props = defineProps<{
   visible?: boolean;
@@ -33,32 +33,32 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'update:visible', visible: boolean): void
-}>()
+}>();
 
 const close = () => {
-  emit('update:visible', false)
-}
+  emit('update:visible', false);
+};
 const onClickOverlay = () => {
   if (props.closeOnClickOverlay) {
-    close()
+    close();
   }
-}
+};
 const onClickOk = () => {
   if (props.ok?.() !== false) {
-    close()
+    close();
   }
-}
+};
 const onClickCancel = () => {
-  props.cancel?.()
-  close()
-}
+  props.cancel?.();
+  close();
+};
 </script>
 
 <style lang="scss">
 $radius: 4px;
 $border-color: #d9d9d9;
 
-.owl-dialog {
+.forest-dialog {
   background: white;
   border-radius: $radius;
   box-shadow: 0 0 3px fade_out(black, 0.5);
@@ -72,7 +72,7 @@ $border-color: #d9d9d9;
     width: 100%;
     height: 100%;
     background: fade_out(black, 0.5);
-    z-index: 10;
+    z-index: 24;
   }
 
   &-wrapper {
@@ -80,10 +80,10 @@ $border-color: #d9d9d9;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 11;
+    z-index: 32;
   }
 
-  >header {
+  > header {
     padding: 12px 16px;
     border-bottom: 1px solid $border-color;
     display: flex;
@@ -92,11 +92,11 @@ $border-color: #d9d9d9;
     font-size: 20px;
   }
 
-  >main {
+  > main {
     padding: 12px 16px;
   }
 
-  >footer {
+  > footer {
     border-top: 1px solid $border-color;
     padding: 12px 16px;
     text-align: right;

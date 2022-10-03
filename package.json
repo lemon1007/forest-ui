@@ -1,11 +1,11 @@
 {
-  "name": "owl-ui",
+  "name": "forest-ui",
   "version": "0.0.4",
   "files": [
     "dist/lib/*"
   ],
-  "main": "dist/lib/owl.js",
-  "module": "dist/lib/owl.esm.js",
+  "main": "dist/lib/forest.js",
+  "module": "dist/lib/forest.esm.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"

@@ -1,4 +1,4 @@
-import "./lib/owl.scss";
+import "./lib/forest.scss";
 import "./index.scss";
 import { createApp } from "vue";
 import App from "./App.vue";

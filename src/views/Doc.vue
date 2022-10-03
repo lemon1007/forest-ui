@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$aside-index : 10;
+$aside-index : 8;
 
 .layout {
   display: flex;

@@ -1,12 +1,12 @@
 <template>
-  <div class="owl-tabs">
-    <div class="owl-tabs-nav" ref="container">
-      <div class="owl-tabs-nav-item" v-for="(t, index) in titles"
+  <div class="forest-tabs">
+    <div class="forest-tabs-nav" ref="container">
+      <div class="forest-tabs-nav-item" v-for="(t, index) in titles"
         :ref="el => { if (t === selected) selectedItem = el }" @click="select(t)" :class="{ selected: t === selected }"
         :key="index">{{ t }}</div>
-      <div class="owl-tabs-nav-indicator" ref="indicator"></div>
+      <div class="forest-tabs-nav-indicator" ref="indicator"></div>
     </div>
-    <div class="owl-tabs-content">
+    <div class="forest-tabs-content">
       <component :is="current" :key="current.props.title" />
     </div>
   </div>
@@ -77,7 +77,7 @@ $blue: #40a9ff;
 $color: #333;
 $border-color: #d9d9d9;
 
-.owl-tabs {
+.forest-tabs {
   &-nav {
     display: flex;
     color: $color;

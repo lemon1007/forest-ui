@@ -6,6 +6,6 @@
 
 <script lang="ts">
 export default {
-  name: 'OwlTab'
+  name: 'ForestTab'
 }
 </script>

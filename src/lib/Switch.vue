@@ -1,5 +1,5 @@
 <template>
-  <button class="owl-switch" @click="toggle" :class="{ 'owl-checked': value }">
+  <button class="forest-switch" @click="toggle" :class="{ 'forest-checked': value }">
     <span></span>
   </button>
 </template>
@@ -18,7 +18,7 @@ const toggle = () => {
 $h: 22px;
 $h2: $h - 4px;
 
-.owl-switch {
+.forest-switch {
   height: $h;
   width: $h * 2;
   border: none;
@@ -37,7 +37,7 @@ $h2: $h - 4px;
     transition: all 250ms;
   }
 
-  &.owl-checked {
+  &.forest-checked {
     background: #1890ff;
 
     >span {
@@ -55,7 +55,7 @@ $h2: $h - 4px;
     }
   }
 
-  &.owl-checked:active {
+  &.forest-checked:active {
     >span {
       width: $h2 + 4px;
       margin-left: -4px;
