@@ -7,7 +7,7 @@
 import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "forest-ui"
 ```
 
-就可以使用我提供的组件了。
+就可以使用库里面提供的组件了。
 
 ## Vue 单文件组件
 
